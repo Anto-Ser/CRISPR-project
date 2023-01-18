@@ -8,6 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Pancreatic organoid CRISPR project analysis.
+
 
 [Pre analysis data processing](pre-processing.html)
