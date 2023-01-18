@@ -28,3 +28,16 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Plot #2
+
+```{r dist, echo=FALSE}
+library(ggplot2)
+#head(cars)
+ggplot(cars)+
+  geom_density(aes(dist))+
+  facet_wrap(~speed)+
+  theme_bw()
+
+```
+
