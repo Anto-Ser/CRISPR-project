@@ -15,8 +15,18 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+This page is inspired by the tutorial available [here](https://www.bioconductor.org/packages/devel/bioc/vignettes/MAGeCKFlute/inst/doc/MAGeCKFlute.html#downstream-analysis-of-mageck-rra)
+And the Nature protocol published in 2019 by Wang et al. [link](https://www.nature.com/articles/s41596-018-0113-7)
+
+```{r Packages installation}
+if(!"MAGeCKFlute" %in% installed.packages()) BiocManager::install("MAGeCKFlute")
+if(!"clusterProfiler" %in% installed.packages()) BiocManager::install("clusterProfiler")
+if(!"ggplot2" %in% installed.packages()) BiocManager::install("ggplot2")
+
+library(MAGeCKFlute)
+library(clusterProfiler)
+library(ggplot2)
+
 ```
 
 ## Including Plots
