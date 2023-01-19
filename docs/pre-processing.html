@@ -471,16 +471,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAntoSerCRISPRprojecttreedfdfefcc6493715589b2dedffb6e6ab0b217981dtargetblankdfdfefca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Anto-Ser/CRISPR-project/tree/dfdfefcc6493715589b2dedffb6e6ab0b217981d" target="_blank">dfdfefc</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAntoSerCRISPRprojecttree826cf1672e289d902e1a6b3c3c63b4fef4863dedtargetblank826cf16a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Anto-Ser/CRISPR-project/tree/826cf1672e289d902e1a6b3c3c63b4fef4863ded" target="_blank">826cf16</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomAntoSerCRISPRprojecttreedfdfefcc6493715589b2dedffb6e6ab0b217981dtargetblankdfdfefca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomAntoSerCRISPRprojecttree826cf1672e289d902e1a6b3c3c63b4fef4863dedtargetblank826cf16a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Anto-Ser/CRISPR-project/tree/dfdfefcc6493715589b2dedffb6e6ab0b217981d" target="_blank">dfdfefc</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Anto-Ser/CRISPR-project/tree/826cf1672e289d902e1a6b3c3c63b4fef4863ded" target="_blank">826cf16</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -489,6 +489,12 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    data/Galaxy51-SLpDNA2and3.txt
+    Ignored:    data/SL2-pDNA-r1_S1_R1_001.fastq.gz
+    Ignored:    data/SL2-pDNA-r2_S14_R1_001.fastq.gz
+
+Untracked files:
+    Untracked:  analysis/MAGeCKFlute_NA/
 
 Unstaged changes:
     Modified:   analysis/pre-processing.Rmd
@@ -530,6 +536,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Anto-Ser/CRISPR-project/blob/826cf1672e289d902e1a6b3c3c63b4fef4863ded/analysis/pre-processing.Rmd" target="_blank">826cf16</a>
+</td>
+<td>
+Anto-Ser
+</td>
+<td>
+2023-01-19
+</td>
+<td>
+update pre processing
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Anto-Ser/CRISPR-project/826cf1672e289d902e1a6b3c3c63b4fef4863ded/docs/pre-processing.html" target="_blank">826cf16</a>
+</td>
+<td>
+Anto-Ser
+</td>
+<td>
+2023-01-19
+</td>
+<td>
+update pre processing
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -631,34 +671,367 @@ Attaching package: &#39;clusterProfiler&#39;</code></pre>
     filter</code></pre>
 <pre class="r"><code>library(ggplot2)</code></pre>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
+<div id="trimming-adapters" class="section level2">
+<h2>Trimming adapters</h2>
 <p>You can also embed plots, for example:</p>
-<p><img src="figure/pre-processing.Rmd/pressure-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code>&#39;getOption(&quot;repos&quot;)&#39; replaces Bioconductor standard repositories, see
+&#39;?repositories&#39; for details
+
+replacement repositories:
+    CRAN: https://cran.rstudio.com/</code></pre>
+<pre><code>Bioconductor version 3.14 (BiocManager 1.30.19), R 4.1.3 (2022-03-10)</code></pre>
+<pre><code>Warning: package(s) not installed when version(s) same as or greater than current; use
+  `force = TRUE` to re-install: &#39;Rbowtie2&#39;</code></pre>
+<pre><code>Installation paths not writeable, unable to update packages
+  path: C:/Program Files/R/R-4.1.3/library
+  packages:
+    boot, cluster, foreign, MASS, Matrix, mgcv, nlme, nnet, rpart, survival</code></pre>
+<pre><code>Old packages: &#39;BiasedUrn&#39;, &#39;bit&#39;, &#39;brew&#39;, &#39;broom&#39;, &#39;bslib&#39;, &#39;Cairo&#39;, &#39;callr&#39;,
+  &#39;car&#39;, &#39;checkmate&#39;, &#39;circlize&#39;, &#39;classInt&#39;, &#39;cli&#39;, &#39;colourpicker&#39;,
+  &#39;commonmark&#39;, &#39;covr&#39;, &#39;cpp11&#39;, &#39;crayon&#39;, &#39;crypto2&#39;, &#39;curl&#39;, &#39;data.table&#39;,
+  &#39;DBI&#39;, &#39;dbplyr&#39;, &#39;dendextend&#39;, &#39;desc&#39;, &#39;DescTools&#39;, &#39;devtools&#39;, &#39;digest&#39;,
+  &#39;dplyr&#39;, &#39;DT&#39;, &#39;dtplyr&#39;, &#39;e1071&#39;, &#39;epiR&#39;, &#39;evaluate&#39;, &#39;Exact&#39;, &#39;expm&#39;,
+  &#39;extrafont&#39;, &#39;FactoMineR&#39;, &#39;farver&#39;, &#39;flextable&#39;, &#39;fontawesome&#39;, &#39;forcats&#39;,
+  &#39;formatR&#39;, &#39;gargle&#39;, &#39;gdtools&#39;, &#39;generics&#39;, &#39;gert&#39;, &#39;gganimate&#39;,
+  &#39;ggbeeswarm&#39;, &#39;ggcorrplot&#39;, &#39;ggforce&#39;, &#39;ggpattern&#39;, &#39;ggplot2&#39;, &#39;ggpubr&#39;,
+  &#39;ggraph&#39;, &#39;ggrepel&#39;, &#39;ggsignif&#39;, &#39;ggspatial&#39;, &#39;ggtext&#39;, &#39;gh&#39;, &#39;gitcreds&#39;,
+  &#39;gld&#39;, &#39;googlesheets4&#39;, &#39;graphlayouts&#39;, &#39;gridpattern&#39;, &#39;gridtext&#39;, &#39;gstat&#39;,
+  &#39;gtable&#39;, &#39;gtools&#39;, &#39;haven&#39;, &#39;highr&#39;, &#39;Hmisc&#39;, &#39;hms&#39;, &#39;htmlTable&#39;,
+  &#39;htmltools&#39;, &#39;htmlwidgets&#39;, &#39;httpuv&#39;, &#39;httr&#39;, &#39;hunspell&#39;, &#39;igraph&#39;, &#39;interp&#39;,
+  &#39;isoband&#39;, &#39;ISOcodes&#39;, &#39;janeaustenr&#39;, &#39;jpeg&#39;, &#39;jsonify&#39;, &#39;jsonlite&#39;, &#39;knitr&#39;,
+  &#39;latticeExtra&#39;, &#39;lifecycle&#39;, &#39;lme4&#39;, &#39;lpSolve&#39;, &#39;lubridate&#39;, &#39;mapproj&#39;,
+  &#39;maps&#39;, &#39;maptools&#39;, &#39;markdown&#39;, &#39;MatrixModels&#39;, &#39;minqa&#39;, &#39;mnormt&#39;, &#39;modelr&#39;,
+  &#39;MSnbase&#39;, &#39;multcomp&#39;, &#39;ncdf4&#39;, &#39;nloptr&#39;, &#39;officer&#39;, &#39;openssl&#39;,
+  &#39;palmerpenguins&#39;, &#39;parsedate&#39;, &#39;patchwork&#39;, &#39;pdftools&#39;, &#39;pillar&#39;, &#39;pingr&#39;,
+  &#39;pkgbuild&#39;, &#39;pkgload&#39;, &#39;plotly&#39;, &#39;plyr&#39;, &#39;png&#39;, &#39;polyclip&#39;, &#39;processx&#39;,
+  &#39;proj4&#39;, &#39;proxy&#39;, &#39;ps&#39;, &#39;psych&#39;, &#39;purrr&#39;, &#39;qpdf&#39;, &#39;quantreg&#39;, &#39;ragg&#39;,
+  &#39;raster&#39;, &#39;Rcpp&#39;, &#39;RcppArmadillo&#39;, &#39;RcppEigen&#39;, &#39;RcppTOML&#39;, &#39;RCurl&#39;, &#39;readr&#39;,
+  &#39;readxl&#39;, &#39;repr&#39;, &#39;reprex&#39;, &#39;reshape&#39;, &#39;reticulate&#39;, &#39;rgdal&#39;, &#39;rgeos&#39;,
+  &#39;RJSONIO&#39;, &#39;rlang&#39;, &#39;rmarkdown&#39;, &#39;RMySQL&#39;, &#39;roxygen2&#39;, &#39;RSQLite&#39;, &#39;rstatix&#39;,
+  &#39;rstudioapi&#39;, &#39;Rttf2pt1&#39;, &#39;rversions&#39;, &#39;rvest&#39;, &#39;s2&#39;, &#39;sandwich&#39;, &#39;sass&#39;,
+  &#39;scales&#39;, &#39;scatterplot3d&#39;, &#39;servr&#39;, &#39;sf&#39;, &#39;shiny&#39;, &#39;sp&#39;, &#39;stringi&#39;,
+  &#39;stringr&#39;, &#39;svglite&#39;, &#39;sys&#39;, &#39;terra&#39;, &#39;testthat&#39;, &#39;TH.data&#39;, &#39;tibble&#39;,
+  &#39;tidycensus&#39;, &#39;tidyr&#39;, &#39;tidyselect&#39;, &#39;tidytext&#39;, &#39;tidyverse&#39;, &#39;tigris&#39;,
+  &#39;timeDate&#39;, &#39;timeSeries&#39;, &#39;tinytex&#39;, &#39;tokenizers&#39;, &#39;tvthemes&#39;, &#39;tweenr&#39;,
+  &#39;udpipe&#39;, &#39;units&#39;, &#39;usethis&#39;, &#39;usmap&#39;, &#39;uuid&#39;, &#39;V8&#39;, &#39;vctrs&#39;, &#39;vegan&#39;,
+  &#39;viridisLite&#39;, &#39;vroom&#39;, &#39;webshot&#39;, &#39;whisker&#39;, &#39;wk&#39;, &#39;writexl&#39;, &#39;xfun&#39;, &#39;xts&#39;,
+  &#39;yaml&#39;, &#39;zip&#39;, &#39;zoo&#39;</code></pre>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
-<div id="plot-2" class="section level2">
-<h2>Plot #2</h2>
-<pre><code>Warning: Groups with fewer than two data points have been dropped.
-Groups with fewer than two data points have been dropped.
-Groups with fewer than two data points have been dropped.
-Groups with fewer than two data points have been dropped.
-Groups with fewer than two data points have been dropped.</code></pre>
-<pre><code>Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
--Inf
-
-Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
--Inf
-
-Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
--Inf
-
-Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
--Inf
-
-Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
--Inf</code></pre>
-<p><img src="figure/pre-processing.Rmd/dist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="merging-replicate-and-normalisation" class="section level2">
+<h2>Merging replicate and normalisation</h2>
+<p>Raw data exported after QC and adapter trimming from Galaxy</p>
+<table>
+<caption>Read count after Galaxy processing</caption>
+<thead>
+<tr class="header">
+<th align="left">sgRNA</th>
+<th align="left">Gene</th>
+<th align="right">pDNA2_r1</th>
+<th align="right">pDNA2_r2</th>
+<th align="right">pDNA3_r1</th>
+<th align="right">pDNA3_r2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ID_29520</td>
+<td align="left">GADD45G</td>
+<td align="right">474</td>
+<td align="right">522</td>
+<td align="right">9</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">ID_10060</td>
+<td align="left">KCNJ11</td>
+<td align="right">739</td>
+<td align="right">692</td>
+<td align="right">7</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_63746</td>
+<td align="left">PAQR7</td>
+<td align="right">424</td>
+<td align="right">457</td>
+<td align="right">3</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">ID_61310</td>
+<td align="left">ZNF664</td>
+<td align="right">454</td>
+<td align="right">476</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_4937</td>
+<td align="left">DNMT1</td>
+<td align="right">417</td>
+<td align="right">455</td>
+<td align="right">8</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">ID_7196</td>
+<td align="left">GLB1</td>
+<td align="right">468</td>
+<td align="right">520</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_75834</td>
+<td align="left">LRRC3C</td>
+<td align="right">540</td>
+<td align="right">498</td>
+<td align="right">4</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">ID_58155</td>
+<td align="left">CPXM2</td>
+<td align="right">421</td>
+<td align="right">420</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_47117</td>
+<td align="left">NAPB</td>
+<td align="right">511</td>
+<td align="right">422</td>
+<td align="right">3</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">ID_55930</td>
+<td align="left">BOC</td>
+<td align="right">349</td>
+<td align="right">363</td>
+<td align="right">1</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_8758</td>
+<td align="left">HOXD4</td>
+<td align="right">610</td>
+<td align="right">600</td>
+<td align="right">2</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">ID_9286</td>
+<td align="left">IGBP1</td>
+<td align="right">454</td>
+<td align="right">411</td>
+<td align="right">4</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_68845</td>
+<td align="left">RAB43</td>
+<td align="right">581</td>
+<td align="right">557</td>
+<td align="right">3</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">ID_4027</td>
+<td align="left">CSF2RB</td>
+<td align="right">493</td>
+<td align="right">479</td>
+<td align="right">4</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_66220</td>
+<td align="left">LACE1</td>
+<td align="right">468</td>
+<td align="right">452</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ID_76423</td>
+<td align="left">POTEB3</td>
+<td align="right">499</td>
+<td align="right">509</td>
+<td align="right">6</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_63877</td>
+<td align="left">KBTBD12</td>
+<td align="right">487</td>
+<td align="right">463</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">ID_25674</td>
+<td align="left">KIAA0100</td>
+<td align="right">372</td>
+<td align="right">399</td>
+<td align="right">2</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_5622</td>
+<td align="left">EPB41</td>
+<td align="right">499</td>
+<td align="right">469</td>
+<td align="right">2</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">ID_67588</td>
+<td align="left">HEXDC</td>
+<td align="right">503</td>
+<td align="right">472</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>Sample replicate are merged by adding the raw readcount value and then normalised to a million (CPM)</p>
+<pre><code>[1] &quot;Merging replicates: 50% samples completed&quot;
+[1] &quot;Merging replicates: 100% samples completed&quot;</code></pre>
+<table>
+<caption>Read count merged and normalized</caption>
+<thead>
+<tr class="header">
+<th align="left">sgRNA</th>
+<th align="left">Gene</th>
+<th align="right">pDNA2_r</th>
+<th align="right">pDNA3_r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ID_29520</td>
+<td align="left">GADD45G</td>
+<td align="right">128.12806</td>
+<td align="right">0.9486787</td>
+</tr>
+<tr class="even">
+<td align="left">ID_10060</td>
+<td align="left">KCNJ11</td>
+<td align="right">184.08760</td>
+<td align="right">1.1718972</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_63746</td>
+<td align="left">PAQR7</td>
+<td align="right">113.33416</td>
+<td align="right">0.3906324</td>
+</tr>
+<tr class="even">
+<td align="left">ID_61310</td>
+<td align="left">ZNF664</td>
+<td align="right">119.63764</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_4937</td>
+<td align="left">DNMT1</td>
+<td align="right">112.17637</td>
+<td align="right">0.8370694</td>
+</tr>
+<tr class="even">
+<td align="left">ID_7196</td>
+<td align="left">GLB1</td>
+<td align="right">127.09892</td>
+<td align="right">0.3348278</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_75834</td>
+<td align="left">LRRC3C</td>
+<td align="right">133.53105</td>
+<td align="right">1.0602879</td>
+</tr>
+<tr class="even">
+<td align="left">ID_58155</td>
+<td align="left">CPXM2</td>
+<td align="right">108.18845</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_47117</td>
+<td align="left">NAPB</td>
+<td align="right">120.02357</td>
+<td align="right">0.5580463</td>
+</tr>
+<tr class="even">
+<td align="left">ID_55930</td>
+<td align="left">BOC</td>
+<td align="right">91.59355</td>
+<td align="right">0.2232185</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_8758</td>
+<td align="left">HOXD4</td>
+<td align="right">155.65758</td>
+<td align="right">0.4464370</td>
+</tr>
+<tr class="even">
+<td align="left">ID_9286</td>
+<td align="left">IGBP1</td>
+<td align="right">111.27587</td>
+<td align="right">0.3906324</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_68845</td>
+<td align="left">RAB43</td>
+<td align="right">146.39531</td>
+<td align="right">0.6138509</td>
+</tr>
+<tr class="even">
+<td align="left">ID_4027</td>
+<td align="left">CSF2RB</td>
+<td align="right">125.04063</td>
+<td align="right">0.8370694</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_66220</td>
+<td align="left">LACE1</td>
+<td align="right">118.35122</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">ID_76423</td>
+<td align="left">POTEB3</td>
+<td align="right">129.67177</td>
+<td align="right">0.6138509</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_63877</td>
+<td align="left">KBTBD12</td>
+<td align="right">122.21050</td>
+<td align="right">0.3348278</td>
+</tr>
+<tr class="even">
+<td align="left">ID_25674</td>
+<td align="left">KIAA0100</td>
+<td align="right">99.18347</td>
+<td align="right">0.4464370</td>
+</tr>
+<tr class="odd">
+<td align="left">ID_5622</td>
+<td align="left">EPB41</td>
+<td align="right">124.52606</td>
+<td align="right">0.4464370</td>
+</tr>
+<tr class="even">
+<td align="left">ID_67588</td>
+<td align="left">HEXDC</td>
+<td align="right">125.42656</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -682,8 +1055,9 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.5         clusterProfiler_4.2.2 MAGeCKFlute_1.14.0   
-[4] workflowr_1.7.0      
+[1] stringr_1.4.0         knitr_1.38            Rbowtie2_2.0.0       
+[4] ggplot2_3.3.5         clusterProfiler_4.2.2 MAGeCKFlute_1.14.0   
+[7] workflowr_1.7.0      
 
 loaded via a namespace (and not attached):
   [1] fgsea_1.20.0           colorspace_2.0-3       ggtree_3.2.1          
@@ -692,9 +1066,9 @@ loaded via a namespace (and not attached):
  [10] rstudioapi_0.13        farver_2.1.0           graphlayouts_0.8.1    
  [13] ggrepel_0.9.1          bit64_4.0.5            scatterpie_0.1.8      
  [16] AnnotationDbi_1.56.2   fansi_1.0.3            splines_4.1.3         
- [19] cachem_1.0.6           GOSemSim_2.20.0        knitr_1.38            
- [22] polyclip_1.10-0        jsonlite_1.8.0         GO.db_3.14.0          
- [25] png_0.1-7              ggforce_0.3.3          compiler_4.1.3        
+ [19] cachem_1.0.6           GOSemSim_2.20.0        polyclip_1.10-0       
+ [22] jsonlite_1.8.0         GO.db_3.14.0           png_0.1-7             
+ [25] ggforce_0.3.3          BiocManager_1.30.19    compiler_4.1.3        
  [28] httr_1.4.2             lazyeval_0.2.2         assertthat_0.2.1      
  [31] Matrix_1.4-0           fastmap_1.1.0          cli_3.2.0             
  [34] later_1.3.0            tweenr_1.0.2           htmltools_0.5.2       
@@ -704,30 +1078,29 @@ loaded via a namespace (and not attached):
  [46] Rcpp_1.0.8.3           enrichplot_1.14.2      Biobase_2.54.0        
  [49] jquerylib_0.1.4        vctrs_0.4.0            Biostrings_2.62.0     
  [52] nlme_3.1-155           ape_5.6-2              ggraph_2.0.6          
- [55] xfun_0.30              stringr_1.4.0          ps_1.6.0              
- [58] lifecycle_1.0.1        DOSE_3.20.1            getPass_0.2-2         
- [61] zlibbioc_1.40.0        MASS_7.3-55            scales_1.1.1          
- [64] tidygraph_1.2.2        promises_1.2.0.1       parallel_4.1.3        
- [67] RColorBrewer_1.1-3     yaml_2.3.5             memoise_2.0.1         
- [70] gridExtra_2.3          downloader_0.4         ggfun_0.0.9           
- [73] yulab.utils_0.0.6      sass_0.4.1             stringi_1.7.6         
- [76] RSQLite_2.2.12         highr_0.9              S4Vectors_0.32.4      
- [79] tidytree_0.4.2         BiocGenerics_0.40.0    BiocParallel_1.28.3   
- [82] GenomeInfoDb_1.30.1    rlang_1.0.2            pkgconfig_2.0.3       
- [85] bitops_1.0-7           evaluate_0.15          lattice_0.20-45       
- [88] purrr_0.3.4            labeling_0.4.2         treeio_1.18.1         
- [91] patchwork_1.1.1        shadowtext_0.1.2       bit_4.0.4             
- [94] processx_3.5.3         tidyselect_1.1.2       plyr_1.8.7            
- [97] magrittr_2.0.3         R6_2.5.1               IRanges_2.28.0        
-[100] generics_0.1.2         DBI_1.1.2              withr_2.5.0           
-[103] pillar_1.7.0           whisker_0.4            KEGGREST_1.34.0       
-[106] RCurl_1.98-1.6         tibble_3.1.6           crayon_1.5.1          
-[109] utf8_1.2.2             rmarkdown_2.13         viridis_0.6.2         
-[112] grid_4.1.3             data.table_1.14.2      blob_1.2.3            
-[115] callr_3.7.0            git2r_0.30.1           digest_0.6.29         
-[118] tidyr_1.2.0            httpuv_1.6.5           gridGraphics_0.5-1    
-[121] stats4_4.1.3           munsell_0.5.0          viridisLite_0.4.0     
-[124] ggplotify_0.1.0        bslib_0.3.1           </code></pre>
+ [55] xfun_0.30              ps_1.6.0               lifecycle_1.0.1       
+ [58] DOSE_3.20.1            getPass_0.2-2          zlibbioc_1.40.0       
+ [61] MASS_7.3-55            scales_1.1.1           tidygraph_1.2.2       
+ [64] promises_1.2.0.1       parallel_4.1.3         RColorBrewer_1.1-3    
+ [67] yaml_2.3.5             memoise_2.0.1          gridExtra_2.3         
+ [70] downloader_0.4         ggfun_0.0.9            yulab.utils_0.0.6     
+ [73] sass_0.4.1             stringi_1.7.6          RSQLite_2.2.12        
+ [76] highr_0.9              S4Vectors_0.32.4       tidytree_0.4.2        
+ [79] BiocGenerics_0.40.0    BiocParallel_1.28.3    GenomeInfoDb_1.30.1   
+ [82] rlang_1.0.2            pkgconfig_2.0.3        bitops_1.0-7          
+ [85] evaluate_0.15          lattice_0.20-45        purrr_0.3.4           
+ [88] treeio_1.18.1          patchwork_1.1.1        shadowtext_0.1.2      
+ [91] bit_4.0.4              processx_3.5.3         tidyselect_1.1.2      
+ [94] plyr_1.8.7             magrittr_2.0.3         R6_2.5.1              
+ [97] IRanges_2.28.0         generics_0.1.2         DBI_1.1.2             
+[100] withr_2.5.0            pillar_1.7.0           whisker_0.4           
+[103] KEGGREST_1.34.0        RCurl_1.98-1.6         tibble_3.1.6          
+[106] crayon_1.5.1           utf8_1.2.2             rmarkdown_2.13        
+[109] viridis_0.6.2          grid_4.1.3             data.table_1.14.2     
+[112] blob_1.2.3             callr_3.7.0            git2r_0.30.1          
+[115] digest_0.6.29          tidyr_1.2.0            httpuv_1.6.5          
+[118] gridGraphics_0.5-1     stats4_4.1.3           munsell_0.5.0         
+[121] viridisLite_0.4.0      ggplotify_0.1.0        bslib_0.3.1           </code></pre>
 </div>
 </div>
 

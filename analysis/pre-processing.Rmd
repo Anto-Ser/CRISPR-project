@@ -18,7 +18,7 @@ When you click the **Knit** button a document will be generated that includes bo
 This page is inspired by the tutorial available [here](https://www.bioconductor.org/packages/devel/bioc/vignettes/MAGeCKFlute/inst/doc/MAGeCKFlute.html#downstream-analysis-of-mageck-rra)
 And the Nature protocol published in 2019 by Wang et al. [link](https://www.nature.com/articles/s41596-018-0113-7)
 
-```{r Packages installation}
+```{r Packages installation echo=FALSE, message = FALSE}
 if(!"MAGeCKFlute" %in% installed.packages()) BiocManager::install("MAGeCKFlute")
 if(!"clusterProfiler" %in% installed.packages()) BiocManager::install("clusterProfiler")
 if(!"ggplot2" %in% installed.packages()) BiocManager::install("ggplot2")
@@ -29,25 +29,82 @@ library(ggplot2)
 
 ```
 
-## Including Plots
+## Trimming adapters
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r Trimming, echo=FALSE, message=FALSE, warning=FALSE}
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Rbowtie2")
+
+library(Rbowtie2)
+#Sequence to be trimmed: TTGTGGAAAGGACGAAACACCG
+
+
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-## Plot #2
+## Merging replicate and normalisation
 
-```{r dist, echo=FALSE}
-library(ggplot2)
-#head(cars)
-ggplot(cars)+
-  geom_density(aes(dist))+
-  facet_wrap(~speed)+
-  theme_bw()
+Raw data exported after QC and adapter trimming from Galaxy
+
+```{r Data from galaxy pDNA2 and 3, echo=FALSE}
+
+pDNA = read.csv("./data/Galaxy51-SLpDNA2and3.txt", sep="\t", header=T)
+names(pDNA)= c("sgRNA", "Gene", "pDNA2_r1", "pDNA2_r2", "pDNA3_r1", "pDNA3_r2")
+
+library(knitr)
+kable(pDNA[1:20,], caption = "Read count after Galaxy processing")
+
+```
+
+Sample replicate are merged by adding the raw readcount value and then normalised to a million (CPM)
+
+```{r Merging pDNA 2 and 3 replicate, echo=FALSE}
+
+library(stringr)
+
+merge_PCR = function(data, min.rep=2, CPM=TRUE, show.corr=FALSE){
+  # Code to generate filtered data by replicate
+  # min.rep: is the minimal number of replicates
+  # CPM: normalize to counts per million (CPM) prior and after merging
+  # note: remove samples with zero counts before running this
+  samples <- substr(names(data),1,nchar(names(data))-1) 
+  merged = data.frame(row.names = row.names(data))
+  
+  for(s in unique(samples)){
+    
+    # Loop status:
+    if(which(s==unique(samples)) %in% round(quantile(1:length(unique(samples)), probs = seq(0.1,1,0.1)))){
+      print(paste0("Merging replicates: ",
+                   round(which(s==unique(samples))/length(unique(samples))*100),
+                   "% samples completed"))}
+    
+    # Merging replicates:
+    d = data[,grep(s,names(data))]
+    d = as.data.frame(d)
+    #if(CPM==TRUE & ncol(d)>=2 & nrow(d)>0) d=sweep(d,2,colSums(d)/1e6,`/`)
+    if(ncol(d)>=2 & show.corr==TRUE & nrow(d)>1) {
+      corr=cor(d,use="pair",method="p")
+      print(corr[1,2])
+    }
+    
+    if(ncol(d)<=1){merged=cbind(merged,0)}
+    else {merged=cbind(merged,(rowSums(d>0,na.rm = TRUE)>=min.rep)*rowSums(d, na.rm = TRUE))}
+  }
+  if(CPM==TRUE) merged=sweep(merged,2,colSums(merged)/1e6,`/`)
+  names(merged)=unique(samples)
+  merged = merged[,!is.na(colSums(merged))]
+  return(merged)
+}
+
+pDNA_merged = merge_PCR(pDNA[,3:6], CPM = TRUE)
+
+pDNA_merged = cbind(pDNA[,1:2],pDNA_merged)
+library(knitr)
+kable(pDNA_merged[1:20,], caption = "Read count merged and normalized")
 
 ```
 
